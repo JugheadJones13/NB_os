@@ -1,0 +1,28 @@
+Boot:
+------
+	
+	- BIOS: set of routines. Loaded from a chip into memory.
+	- 1st sector of a storage device - Boot sector
+		- identified by "0x55 0xaa" in last two bytes of 512B sector. (remember: if little endian then "0xaa55")
+
+	- To assemble to machine code: (Here -f bin refers to raw binary without metadata - just bytes)
+		$nasm boot sect.asm -f bin -o boot sect.bin
+
+	- When you write to a disk, you should not write to its file system. Use some software that writes to the first sector of the disk.
+	- For backward compatibility, machine starts in 16 bit real mode.
+
+General:
+-------
+	
+	- word: Maximum processing unit in current mode. 
+		- If cpu is in 16 bit mode then word is 16 bit, if in 32 bit mode, word is 32 bit.
+	
+	- Interrupt vector table is loaded into physical address 0x0 by BIOS.
+		- It contains addresses of Interrupt Service Routines(ISRs)
+
+Later Look:
+-------
+	
+	- Minix operating system.
+	- How VirtualBox executes guest os instructions ?
+	- what is so speacial about an "iso" file ?
