@@ -27,8 +27,7 @@ General:
 -------
 	
 	- word: Maximum processing unit in current mode. 
-		- If cpu is in 16 bit mode then word is 16 bit, if in 32 bit mode, word is 32 bit.
-	
+		- A word in x86 is 16 bits. (double word - 4B, quad word - 8B) 	
 	- Interrupt vector table is loaded into physical address 0x0 by BIOS.
 		- It contains addresses of Interrupt Service Routines(ISRs)
 
