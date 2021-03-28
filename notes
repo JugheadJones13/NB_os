@@ -10,6 +10,18 @@ Boot:
 
 	- When you write to a disk, you should not write to its file system. Use some software that writes to the first sector of the disk.
 	- For backward compatibility, machine starts in 16 bit real mode.
+    - Bios loads bootsector from disk to memory
+    - 0x0 - Interrupt vector table
+    - 0x7c00 - Bootloader
+
+            nasm -f bin boot_sect.asm -o boot_sect.bin
+            truncate boot_sect.bin -s 1200k
+            mkisofs -o myos.iso -b boot_sect.bin /abs/path/to/PWD
+
+    - In 16 bit mode the push/pop stack instructions work on 16 bit values
+
+    - TUI - Text User Interface
+    - GUI - Graphical User Interface
 
 General:
 -------
